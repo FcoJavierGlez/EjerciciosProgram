@@ -2,6 +2,7 @@ package diccionariosycolecciones;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * 
@@ -43,9 +44,9 @@ public class Ejercicio9 {
     
 
     
-    //Collections.sort(listaCalles, (o1, o2) -> o1.getCodigo().compareTo(o2.getCodigo()));
-    
     Collections.sort(lista, (o1, o2) -> o1.getPalo().compareTo(o2.getPalo()));
+    
+    //Collections.sort(lista, (o1, o2) -> o1.getNumero().compare(o2.getNumero()));
     
     //Collections.sort(lista, (o1, o2) -> o1.getNumero()>o2.getNumero());
     
