@@ -48,7 +48,7 @@ class GatoSimple():
 
     def apareaCon(self, gato):
         if self.getSexo()==gato.getSexo():
-            raise ExcepcionApareamientoImposible()
+            raise ExcepcionApareamientoImposible("No se pueden aparear dos gatos del mismo sexo.")
         else:
             print("Acaba de nacer una cría.")
 
