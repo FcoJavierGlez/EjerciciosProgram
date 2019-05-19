@@ -48,7 +48,7 @@ public class CambioIdeal {
   }
 
   /**
-   * Asigna el tipo de moneda (euros o céntimos).
+   * Asigna el tipo de moneda (euros o céntimos) mientras haya una cantidad superior a 0 de ese tipo de moneda.
    * 
    * @param cambio  La cantidad de dinero (int) en monedas.
    * @param i Variable de control
@@ -67,11 +67,20 @@ public class CambioIdeal {
   private static int calculaBilletes(int cambio) {
     resultado+="Billetes:\n=========\n";
     for (int i=0; i<BILLETES.length; i++) {
-      if (Math.abs(cambio/BILLETES[i])!=0)
-        resultado+="Billete de " + BILLETES[i]/100 + "€: " + Math.abs(cambio/BILLETES[i]) + "\n";
+      asignaTipoBillete(cambio, i);
       cambio%=BILLETES[i];
     }
     return cambio;
+  }
+
+  /**
+   * Asigna el tipo de billete mientras haya una cantidad superior a 0 de ese tipo de billete.
+   * 
+   * @param cambio La cantidad de dinero (int) total.
+   * @param i Variable de control
+   */
+  private static void asignaTipoBillete(int cambio, int i) {
+    resultado+=(Math.abs(cambio/BILLETES[i])!=0) ? "Billete de " + BILLETES[i]/100 + "€: " + Math.abs(cambio/BILLETES[i]) + "\n" : "";
   }
 
 
