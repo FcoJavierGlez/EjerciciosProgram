@@ -44,13 +44,21 @@ public class CambioIdeal {
   private static String calculaMonedas(int cambio) {
     resultado+=TITULO_MONEDAS;
     for (int i=0; i<MONEDAS.length; i++) {
-      if (MONEDAS[i]>50 && Math.abs(cambio/MONEDAS[i])!=0)
-        resultado+="Moneda de " + MONEDAS[i]/100 + "€: " + Math.abs(cambio/MONEDAS[i]) + "\n";
-      else if (MONEDAS[i]<=50 && Math.abs(cambio/MONEDAS[i])!=0)
-        resultado+="Moneda de " + MONEDAS[i] + "¢: " + Math.abs(cambio/MONEDAS[i]) + "\n";
+      asignaTipoMoneda(cambio, i);
       cambio=cambio%MONEDAS[i];
     }
     return resultado;
+  }
+
+  /**
+   * Asigna el tipo de moneda (euros o céntimos).
+   * 
+   * @param cambio  La cantidad de dinero (int) en monedas.
+   * @param i Variable de control
+   */
+  private static void asignaTipoMoneda(int cambio, int i) {
+    resultado+=(MONEDAS[i]>50 && Math.abs(cambio/MONEDAS[i])!=0) ? "Moneda de " + MONEDAS[i]/100 + "€: " + Math.abs(cambio/MONEDAS[i]) + "\n" : "";
+    resultado+=(MONEDAS[i]<=50 && Math.abs(cambio/MONEDAS[i])!=0) ? "Moneda de " + MONEDAS[i] + "¢: " + Math.abs(cambio/MONEDAS[i]) + "\n" : "";
   }
   
   /**
