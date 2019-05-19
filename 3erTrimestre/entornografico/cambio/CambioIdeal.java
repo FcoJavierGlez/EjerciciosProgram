@@ -9,9 +9,6 @@ package entornografico.cambio;
  *
  */
 public class CambioIdeal {
-  private static final String TITULO_BILLETES = "Billetes:\n=========\n";
-  private static final String TITULO_MONEDAS = "\nMonedas:\n========\n";
-  
   private static final int BILLETES []= {50000, 20000, 10000, 5000, 2000, 1000, 500};
   private static final int MONEDAS []= {200, 100, 50, 20, 10, 5, 2, 1};
   
@@ -42,7 +39,7 @@ public class CambioIdeal {
    * @return  Devuelve el resultado (String) a ser mostrado.
    */
   private static String calculaMonedas(int cambio) {
-    resultado+=TITULO_MONEDAS;
+    resultado+="\nMonedas:\n========\n";
     for (int i=0; i<MONEDAS.length; i++) {
       asignaTipoMoneda(cambio, i);
       cambio%=MONEDAS[i];
@@ -68,7 +65,7 @@ public class CambioIdeal {
    * @return  Devuelve la cantidad de dinero restante en monedas.
    */
   private static int calculaBilletes(int cambio) {
-    resultado+=TITULO_BILLETES;
+    resultado+="Billetes:\n=========\n";
     for (int i=0; i<BILLETES.length; i++) {
       if (Math.abs(cambio/BILLETES[i])!=0)
         resultado+="Billete de " + BILLETES[i]/100 + "€: " + Math.abs(cambio/BILLETES[i]) + "\n";
