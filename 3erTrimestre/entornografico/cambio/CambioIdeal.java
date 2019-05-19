@@ -45,7 +45,7 @@ public class CambioIdeal {
     resultado+=TITULO_MONEDAS;
     for (int i=0; i<MONEDAS.length; i++) {
       asignaTipoMoneda(cambio, i);
-      cambio=cambio%MONEDAS[i];
+      cambio%=MONEDAS[i];
     }
     return resultado;
   }
@@ -72,7 +72,7 @@ public class CambioIdeal {
     for (int i=0; i<BILLETES.length; i++) {
       if (Math.abs(cambio/BILLETES[i])!=0)
         resultado+="Billete de " + BILLETES[i]/100 + "€: " + Math.abs(cambio/BILLETES[i]) + "\n";
-      cambio=cambio%BILLETES[i];
+      cambio%=BILLETES[i];
     }
     return cambio;
   }
